@@ -1,0 +1,16 @@
+<div class="login-form-wrapper" fxLayoutAlign="center center">
+    <form class="login-form" [formGroup]="loginForm">
+        <h1>Login</h1>
+        <div fxLayout="column">
+            <mat-form-field appearance="legacy">
+                <mat-label>Username</mat-label>
+                <input formControlName="username" matInput placeholder="Username">
+            </mat-form-field>
+            <mat-form-field appearance="legacy">
+                <mat-label>Password</mat-label>
+                <input formControlName="password" matInput type="password" placeholder="Password">
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="login()">Log In</button>
+        </div>
+    </form>
+</div>
