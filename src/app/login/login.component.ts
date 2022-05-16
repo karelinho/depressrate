@@ -21,21 +21,30 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', [Validators.required, Validators.minLength(5)])
   });
 
+  loading = false;
+
   constructor(private authenticationService: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   login(): void {
+    this.loading = true;
     let username = this.loginForm.get('username')?.value;
     let password = this.loginForm.get('password')?.value;
     this.authenticationService.loginUser({
       username: username,
       password: password
     }).subscribe((result: any) => {
+      this.loading = false;
       localStorage.setItem("da-token", result.token);
       this.authenticationService.logged$.next(true);
       this.router.navigateByUrl("home");
+    },() => {
+      this.loading = false;
+      this.loginForm.get('password')?.setErrors({['Password maybe invalid.']: true});
+      this.loginForm.get('username')?.setErrors({['Username maybe invalid.']: true});
+      this.loginForm.get('username')?.markAsTouched();
     });
   }
 }

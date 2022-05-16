@@ -1,1 +1,32 @@
+app-new {
+    align-items: center;
+}
 
+.new-page-wrapper {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.wrapper-box {
+    width: 50%;
+}
+
+.mat-radio-button {
+    margin: 0 10px;
+}
+
+.new-box {
+    padding: 20px 0;
+    border-bottom: 1px solid #c1c1c1;
+}
+
+.send-button {
+    width: 100%;
+}
+
+.date-field {
+    margin: 0 auto;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 60px;
+}

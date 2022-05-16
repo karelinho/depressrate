@@ -10,4 +10,16 @@
     border: 1px solid #000000;
     border-radius: 10px;
     background-color: #ffffff;
+    position: relative;
+}
+
+.login-form .spinner {
+    position: absolute;
+    z-index: 10;
+    margin: 0px auto;
+    right: 0px;
+    left: 0px;
+    top: 25%;
+    width: 100px;
+    height: 100px;
 }

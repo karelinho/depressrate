@@ -1,5 +1,6 @@
 <div class="login-form-wrapper" fxLayoutAlign="center center">
     <form class="login-form" [formGroup]="loginForm">
+        <mat-spinner *ngIf="loading" class="spinner"></mat-spinner>
         <h1>Login</h1>
         <div fxLayout="column">
             <mat-form-field appearance="legacy">

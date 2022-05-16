@@ -30,7 +30,6 @@ export class AuthenticationService {
 
   isLogged(): boolean {
     const value = this.logged$.getValue();
-    console.log(value);
     return value;
   }
 }

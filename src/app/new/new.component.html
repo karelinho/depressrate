@@ -1,1 +1,111 @@
-<div>New!</div>
+<div fxLayout="column" class="new-page-wrapper">
+    <div fxLayout="row">
+        <div class="date-field">{{ date }}</div>
+    </div>
+    <div fxLayout="row" class="new-box">
+        <div class="wrapper-box">Spánek</div>
+        <mat-radio-group [(ngModel)]="sleep">
+            <mat-radio-button [value]="1">1</mat-radio-button>
+            <mat-radio-button [value]="2">2</mat-radio-button>
+            <mat-radio-button [value]="3">3</mat-radio-button>
+            <mat-radio-button [value]="4">4</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div fxLayout="row" class="new-box">
+        <div class="wrapper-box">Bolest hlavy</div>
+        <mat-radio-group [(ngModel)]="headache">
+            <mat-radio-button [value]="1">1</mat-radio-button>
+            <mat-radio-button [value]="2">2</mat-radio-button>
+            <mat-radio-button [value]="3">3</mat-radio-button>
+            <mat-radio-button [value]="4">4</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div fxLayout="row" class="new-box">
+        <div class="wrapper-box">Únava</div>
+        <mat-radio-group [(ngModel)]="tiredness">
+            <mat-radio-button [value]="1">1</mat-radio-button>
+            <mat-radio-button [value]="2">2</mat-radio-button>
+            <mat-radio-button [value]="3">3</mat-radio-button>
+            <mat-radio-button [value]="4">4</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div fxLayout="row" class="new-box">
+        <div class="wrapper-box">Chuť k jídlu</div>
+        <mat-radio-group [(ngModel)]="appetite">
+            <mat-radio-button [value]="1">1</mat-radio-button>
+            <mat-radio-button [value]="2">2</mat-radio-button>
+            <mat-radio-button [value]="3">3</mat-radio-button>
+            <mat-radio-button [value]="4">4</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div fxLayout="row" class="new-box">
+        <div class="wrapper-box">Zácpa</div>
+        <mat-radio-group [(ngModel)]="constipation">
+            <mat-radio-button [value]="1">1</mat-radio-button>
+            <mat-radio-button [value]="2">2</mat-radio-button>
+            <mat-radio-button [value]="3">3</mat-radio-button>
+            <mat-radio-button [value]="4">4</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div fxLayout="row" class="new-box">
+        <div class="wrapper-box">Sebeobviňující myšlenky</div>
+        <mat-radio-group [(ngModel)]="self_blame_thoughts">
+            <mat-radio-button [value]="1">1</mat-radio-button>
+            <mat-radio-button [value]="2">2</mat-radio-button>
+            <mat-radio-button [value]="3">3</mat-radio-button>
+            <mat-radio-button [value]="4">4</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div fxLayout="row" class="new-box">
+        <div class="wrapper-box">Nálada</div>
+        <mat-radio-group [(ngModel)]="mood">
+            <mat-radio-button [value]="1">1</mat-radio-button>
+            <mat-radio-button [value]="2">2</mat-radio-button>
+            <mat-radio-button [value]="3">3</mat-radio-button>
+            <mat-radio-button [value]="4">4</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div fxLayout="row" class="new-box">
+        <div class="wrapper-box">Sebedestruktivní myšlenky</div>
+        <mat-radio-group [(ngModel)]="self_destructive_thoughts">
+            <mat-radio-button [value]="1">1</mat-radio-button>
+            <mat-radio-button [value]="2">2</mat-radio-button>
+            <mat-radio-button [value]="3">3</mat-radio-button>
+            <mat-radio-button [value]="4">4</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div fxLayout="row" class="new-box">
+        <div class="wrapper-box">Soustředěnost</div>
+        <mat-radio-group [(ngModel)]="concentration">
+            <mat-radio-button [value]="1">1</mat-radio-button>
+            <mat-radio-button [value]="2">2</mat-radio-button>
+            <mat-radio-button [value]="3">3</mat-radio-button>
+            <mat-radio-button [value]="4">4</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div fxLayout="row" class="new-box">
+        <div class="wrapper-box">Tělesná nepohoda</div>
+        <mat-radio-group [(ngModel)]="physical_discomfort">
+            <mat-radio-button [value]="1">1</mat-radio-button>
+            <mat-radio-button [value]="2">2</mat-radio-button>
+            <mat-radio-button [value]="3">3</mat-radio-button>
+            <mat-radio-button [value]="4">4</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div fxLayout="row" class="new-box">
+        <div class="wrapper-box">Pocit napětí</div>
+        <mat-radio-group [(ngModel)]="tense_feeling">
+            <mat-radio-button [value]="1">1</mat-radio-button>
+            <mat-radio-button [value]="2">2</mat-radio-button>
+            <mat-radio-button [value]="3">3</mat-radio-button>
+            <mat-radio-button [value]="4">4</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div fxLayout="row" class="new-box">
+        <div class="wrapper-box">Délka spánku a ostatní poznámky</div>
+        <textarea id="myTextfield" [value]='sleep_length'></textarea>
+    </div>
+    <div fxLayout="row">
+        <button mat-raised-button color="primary" (click)="saveDailyReport()" class="-primary send-button">Uložit</button>
+    </div>
+</div>
