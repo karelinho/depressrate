@@ -3,15 +3,27 @@
         <mat-spinner *ngIf="loading" class="spinner"></mat-spinner>
         <h1>Login</h1>
         <div fxLayout="column">
-            <mat-form-field appearance="legacy">
-                <mat-label>Username</mat-label>
-                <input formControlName="username" matInput placeholder="Username">
+            <mat-form-field>
+                <input type="text" matInput
+                    placeholder="Username"
+                    formControlName="username" />
             </mat-form-field>
-            <mat-form-field appearance="legacy">
-                <mat-label>Password</mat-label>
-                <input formControlName="password" matInput type="password" placeholder="Password">
+            <mat-form-field>
+                <input type="text" matInput
+                    placeholder="Password"
+                    formControlName="password"
+                    minlength="5" />
+                <mat-error *ngIf="loginForm.get('password')?.errors?.['minlength']">
+                    Password must be at least 5 characters long.
+                </mat-error>
+                <mat-error *ngIf="loginForm.get('password')?.errors?.['required']">
+                    Password is required.
+                </mat-error>
+                <mat-error *ngIf="loginForm.get('password')?.errors?.['invalidform']">
+                    The username or password is wrong.
+                </mat-error>
             </mat-form-field>
-            <button mat-raised-button color="primary" (click)="login()">Log In</button>
+            <button mat-raised-button color="primary" (click)="login()" [disabled]="loginForm.invalid">Log In</button>
         </div>
     </form>
 </div>

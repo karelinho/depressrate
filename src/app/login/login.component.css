@@ -23,3 +23,7 @@
     width: 100px;
     height: 100px;
 }
+
+mat-form-field .mat-form-field-wrapper {
+    margin-bottom: 10px;
+}

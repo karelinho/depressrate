@@ -17,8 +17,8 @@ export interface IAuth {
 export class LoginComponent implements OnInit {
 
   loginForm = new FormGroup({
-    username: new FormControl('', Validators.required),
-    password: new FormControl('', [Validators.required, Validators.minLength(5)])
+    username: new FormControl(''),
+    password: new FormControl('', Validators.required)
   });
 
   loading = false;
@@ -42,8 +42,7 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl("home");
     },() => {
       this.loading = false;
-      this.loginForm.get('password')?.setErrors({['Password maybe invalid.']: true});
-      this.loginForm.get('username')?.setErrors({['Username maybe invalid.']: true});
+      this.loginForm.get('password')?.setErrors({ invalidform: true }); // (['Password maybe invalid.']);
       this.loginForm.get('username')?.markAsTouched();
     });
   }
