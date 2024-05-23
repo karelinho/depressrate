@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication/authentication.service';
+import { Subscriber, Subscription } from 'rxjs';
 
 export interface IAuth {
   username: string;
@@ -14,7 +15,7 @@ export interface IAuth {
   styleUrls: ['./login.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
   loginForm = new FormGroup({
     username: new FormControl(''),
@@ -22,6 +23,8 @@ export class LoginComponent implements OnInit {
   });
 
   loading = false;
+
+  loginSubs: Subscription = new Subscription();
 
   constructor(private authenticationService: AuthenticationService, private router: Router) { }
 
@@ -32,7 +35,7 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     let username = this.loginForm.get('username')?.value;
     let password = this.loginForm.get('password')?.value;
-    this.authenticationService.loginUser({
+    this.loginSubs = this.authenticationService.loginUser({
       username: username,
       password: password
     }).subscribe((result: any) => {
@@ -42,8 +45,12 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl("home");
     },() => {
       this.loading = false;
-      this.loginForm.get('password')?.setErrors({ invalidform: true }); // (['Password maybe invalid.']);
+      this.loginForm.get('password')?.setErrors({ invalidform: true });
       this.loginForm.get('username')?.markAsTouched();
     });
+  }
+
+  ngOnDestroy(): void {
+    this.loginSubs.unsubscribe();
   }
 }
